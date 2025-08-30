@@ -3,11 +3,13 @@ title: "R Objects, Workflow, and Functions"
 author: "Lanette Tyler"
 format: html
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
 
-## Practice with Vectors
+## Vectors
 
-### Create a Vector
+Create a Vector
 
 ```{r}
 set.seed(42)
@@ -15,22 +17,71 @@ my_runif <- runif(30)
 is.vector(my_runif)
 ```
 
-### Subset object my_unif
+Subset object my_unif
 
 ```{r}
 my_runif[1:10]
 my_runif[c(1:3,15:17)]
 ```
 
-### Sort the vector (my_unif)
+Sort the vector (my_unif)
 
 ```{r}
 sort(my_runif)
 ```
 
-### Create a vector with character strings in it and explore sorting conventions
+Create a vector with character strings in it and explore sorting conventions
 
 ```{r}
 char_vector <- c("hix","abd","z4","xyz","42t","Xyz")
 sort(char_vector)
 ```
+
+
+## Data Frames
+
+List data sets currently loaded into environment:
+```{r}
+data()
+```
+List of data sets in environment opens in a file (R data sets)
+
+Load trees data set into environment:
+```{r}
+data(trees)
+```
+Loads into environment as "promise"
+
+Output data set:
+```{r}
+trees
+```
+Outputs to console or qmd file, depending on settings; changes from "promise" to listed in env
+
+Figure out the type of R object:
+```{r}
+str(trees)
+```
+It's a data frame!
+
+Subset a column (two ways):
+```{r}
+trees$Height
+trees[,2]
+```
+ouput columns (both are the same)
+
+Get attributes from the data frame, especially names, names lists are output as vectors, so we can subset those vectors:
+```{r}
+attributes(trees)
+names(trees)
+colnames(trees)
+names(trees)[2:3]
+```
+
+
+
+
+
+
+
