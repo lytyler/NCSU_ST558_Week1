@@ -8,7 +8,7 @@
 
 <meta name="author" content="Lanette Tyler">
 
-<title>first_quarto_doc</title>
+<title>R Objects, Workflow, and Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,16 +58,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="First_Quarto_Doc_rendered_files/libs/clipboard/clipboard.min.js"></script>
-<script src="First_Quarto_Doc_rendered_files/libs/quarto-html/quarto.js"></script>
-<script src="First_Quarto_Doc_rendered_files/libs/quarto-html/popper.min.js"></script>
-<script src="First_Quarto_Doc_rendered_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="First_Quarto_Doc_rendered_files/libs/quarto-html/anchor.min.js"></script>
-<link href="First_Quarto_Doc_rendered_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="First_Quarto_Doc_rendered_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="First_Quarto_Doc_rendered_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="First_Quarto_Doc_rendered_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="First_Quarto_Doc_rendered_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="Week2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Week2_files/libs/quarto-html/quarto.js"></script>
+<script src="Week2_files/libs/quarto-html/popper.min.js"></script>
+<script src="Week2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Week2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Week2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Week2_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Week2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Week2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Week2_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">first_quarto_doc</h1>
+<h1 class="title">R Objects, Workflow, and Functions</h1>
 </div>
 
 
@@ -103,79 +103,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="quarto" class="level2">
-<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
-</section>
-<section id="running-code" class="level2">
-<h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<section id="practice-with-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="practice-with-vectors">Practice with Vectors</h2>
+<section id="create-a-vector" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-vector">Create a Vector</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>my_runif <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">30</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(my_runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] TRUE</code></pre>
 </div>
 </div>
-<p>You can add options to executable code like this, echo is false</p>
+</section>
+<section id="subset-object-my_unif" class="level3">
+<h3 class="anchored" data-anchor-id="subset-object-my_unif">Subset object my_unif</h3>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_runif[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<pre><code> [1] 0.9148060 0.9370754 0.2861395 0.8304476 0.6417455 0.5190959 0.7365883
+ [8] 0.1346666 0.6569923 0.7050648</code></pre>
 </div>
-</div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
-</section>
-<section id="try-a-few-things-myself" class="level2">
-<h2 class="anchored" data-anchor-id="try-a-few-things-myself">Try a few things myself</h2>
-<section id="repet-previos-code-with-echo-true" class="level3">
-<h3 class="anchored" data-anchor-id="repet-previos-code-with-echo-true">Repet previos code with echo true</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_runif[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">15</span><span class="sc">:</span><span class="dv">17</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<pre><code>[1] 0.9148060 0.9370754 0.2861395 0.4622928 0.9400145 0.9782264</code></pre>
 </div>
 </div>
-<p>(Code chunk should have been visible)</p>
 </section>
-<section id="next-up-make-a-histogram" class="level3">
-<h3 class="anchored" data-anchor-id="next-up-make-a-histogram">Next up… make a histogram:</h3>
+<section id="sort-the-vector-my_unif" class="level3">
+<h3 class="anchored" data-anchor-id="sort-the-vector-my_unif">Sort the vector (my_unif)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Petal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="First_Quarto_Doc_rendered_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(my_runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.08243756 0.11748736 0.13466660 0.13871017 0.25542882 0.28613953
+ [7] 0.39020347 0.44696963 0.45774178 0.46229282 0.47499708 0.51421178
+[13] 0.51909595 0.56033275 0.64174552 0.65699229 0.70506478 0.71911225
+[19] 0.73658831 0.83044763 0.83600426 0.90403139 0.90573813 0.91480604
+[25] 0.93467225 0.93707541 0.94001452 0.94666823 0.97822643 0.98889173</code></pre>
 </div>
 </div>
-</div>
-<p>SHould have displayed a histogram. Is code chunk visible or not? (default)</p>
-</section>
-<section id="now-histogram-with-code-chunk" class="level3">
-<h3 class="anchored" data-anchor-id="now-histogram-with-code-chunk">Now histogram with code chunk</h3>
+<p>###Create a vector with character strings in it</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iris<span class="sc">$</span>Petal.Length)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="First_Quarto_Doc_rendered_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>char_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hix"</span>,<span class="st">"abd"</span>,<span class="st">"z4"</span>,<span class="st">"xyz"</span>,<span class="st">"42t"</span>,<span class="st">"Xyz"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(char_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "42t" "abd" "hix" "xyz" "Xyz" "z4" </code></pre>
 </div>
 </div>
-</div>
-<p>SHould have shown histogram with code chunk, explicitly coded</p>
-</section>
-<section id="now-histogram-without-code-chunk" class="level3">
-<h3 class="anchored" data-anchor-id="now-histogram-without-code-chunk">Now histogram without code chunk</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="First_Quarto_Doc_rendered_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>SHould have shown hisstogram without code chunk.</p>
 </section>
 </section>
 

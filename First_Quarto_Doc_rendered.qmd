@@ -2,7 +2,8 @@
 title: "first_quarto_doc"
 author: "Lanette Tyler"
 format: html
-editor: visual
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ## Quarto
@@ -17,7 +18,7 @@ When you click the **Render** button a document will be generated that includes 
 1 + 1
 ```
 
-You can add options to executable code like this
+You can add options to executable code like this, echo is false
 
 ```{r}
 #| echo: false
@@ -25,3 +26,40 @@ You can add options to executable code like this
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).
+
+## Try a few things myself
+
+### Repet previos code with echo true
+
+```{r}
+#| echo: true
+2*2
+```
+(Code chunk should have been visible)
+
+### Next up... make a histogram:
+
+```{r}
+hist(iris$Petal.Length)
+```
+
+SHould have displayed a histogram. Is code chunk visible or not? (default)
+
+### Now histogram with code chunk
+
+```{r}
+#| echo: true
+
+hist(iris$Petal.Length)
+```
+
+SHould have shown histogram with code chunk, explicitly coded
+
+### Now histogram without code chunk
+
+```{r}
+#| echo: false
+hist(iris$Petal.Length)
+```
+
+SHould have shown hisstogram without code chunk.

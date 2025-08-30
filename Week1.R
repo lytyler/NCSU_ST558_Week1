@@ -16,5 +16,7 @@ summary(PL)
 is.vector(PL)
 is.data.frame(PL)
 
+hist(PL)
+
 getwd()
 setwd(" ")
