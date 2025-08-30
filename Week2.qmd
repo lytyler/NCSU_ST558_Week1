@@ -80,6 +80,39 @@ names(trees)[2:3]
 ```
 
 
+## Lists
+
+Investigate date frame trees:
+```{r}
+is.list(trees)
+is.data.frame(trees)
+```
+
+Because trees is a list as well as a data frame, we can subset like a list:
+```{r}
+trees[1] #output is a data frame since single brackets preserve
+trees[[1]] #output is a vector, since double brackets simplify
+#double brackets are for sinlge elememt/one column
+trees[1:2] #first two columns
+trees[1,3] #single element
+```
+
+Lists are very convenient for storage. Moedling function outputs are often store as lists. Let's look at a linear model's output:
+```{r}
+fit <- lm(Volume~Girth+Height,data =trees)
+str(fit) #overwhelming amount of info
+str(fit$coefficients) #one way to limit info, one element at a time
+str(fit,max.level=1)
+```
+
+Some of these fit objects have helper functions:
+```{r}
+coef(fit)
+residuals(fit)
+rank(fit) #this one doesn't work
+effects(fit)
+```
+
 
 
 

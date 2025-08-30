@@ -1,5 +1,5 @@
 # NCSU 558 Week 2
-# Matrices and Data Frames
+# Matrices and Data Frames and Lists
 
 # Matrices-----------------------------------------------------------------------
 ## Create a matrix
@@ -143,3 +143,65 @@ iris[1:5,c("Sepal.Length","Species")]
 # alternative way to access a column
 iris$Sepal.Length
 iris[,1] #same results
+
+
+# Lists---------------------------------------------------------------------------
+#make a list
+#first make a data frame to include in the list
+my_df <- data.frame(number=1:5,letter=c("a","b","c","d","e"))
+my_df
+
+#make a list
+my_list <- list(my_df,rnorm(4),c("!","?"))
+my_list
+
+#Now re-create the list with elements named:
+my_list <- list(my_data_frame = my_df,normVals = rnorm(4), punctuation = c("!","?"))
+my_list
+
+#look at attributes and names of a list:
+str(my_list)
+attributes(my_list)
+names(my_list)
+
+#Accessing list elements
+#Look at list/output list
+my_list
+my_list[2] #look at second list element
+my_list[[1]] #another way to look at single element
+#single brackets returns list with named element, double brackets returns just the element
+my_list[2:3] #look at second and third list elements
+str(my_list[1])
+str(my_list[2])
+str(my_list[[1]])
+
+#multiple subsets on single line
+my_list[[2]]
+my_list[[2]][3:4] #third and fourth items of second list element
+
+#if our list elements are names, we can use $, like with data frames:
+str(my_list)
+my_list$my_data_frame
+my_list$normVals
+my_list$punctuation
+
+
+#attributes function actually returns a list
+attributes(my_list)
+str(attributes(my_list))
+attributes(my_list)$names
+
+# Lists and Data Frames ---------------------------------------------------------
+#a data frame is a list of equal length vectors
+#compare structure of list and data frame
+str(my_list)
+str(iris)
+is.list(my_list)
+is.list(iris)
+
+#thus, we can access the columns of a data frame like we would access the objects in a list:
+iris[2]
+iris[[2]]
+#remember that single brackets preserve while double brackets simplify
+typeof(my_list)
+typeof(iris)
