@@ -109,7 +109,6 @@ Some of these fit objects have helper functions:
 ```{r}
 coef(fit)
 residuals(fit)
-rank(fit) #this one doesn't work
 effects(fit)
 ```
 
