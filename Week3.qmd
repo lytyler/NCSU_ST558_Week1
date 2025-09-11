@@ -1,0 +1,74 @@
+---
+title: "Writing Functions"
+author: "Lanette Tyler"
+format: html
+editor: visual
+---
+
+## Writing Functions
+
+Normal approximation of the binomial distribution:
+```{r}
+n <- 40
+prob <- 0.3
+# probabilities from a binomial random variable
+dbinom(0:n, size = n, prob = prob)
+plot(0:n, dbinom(0:n, size = n, prob = prob), type = "h")
+norm_x <- seq(from = 0, to = 40, length = 1000)
+lines(norm_x, dnorm(norm_x,mean = n*prob, sd = sqrt(n*prob*(1 - prob))))
+```
+
+We want to write a function that will take in a sample size and a probability and output a graph like this one above.
+
+```{r}
+plot_norm_appx <- function(n, prob) {
+  plot(0:n, dbinom(0:n, size = n, prob = prob), type = "h")
+  norm_x <- seq(from = 0, to = 40, length = 1000)
+  lines(norm_x, dnorm(norm_x,mean = n*prob, sd = sqrt(n*prob*(1 - prob))))
+}
+```
+
+Test out our function:
+```{r}
+plot_norm_appx(30, 0.5)
+```
+Make the function more user friendly by adding defaults:
+```{r}
+plot_norm_appx <- function(n = 30, prob = 0.5) {
+  plot(0:n, dbinom(0:n, size = n, prob = prob), type = "h")
+  norm_x <- seq(from = 0, to = 40, length = 1000)
+  lines(norm_x, dnorm(norm_x,mean = n*prob, sd = sqrt(n*prob*(1 - prob))))
+}
+```
+
+Test it out:
+```{r}
+plot_norm_appx()
+plot_norm_appx(n = 50)
+plot_norm_appx(prob = 0.1)
+```
+
+Make a simple funtion to take in a data frame and print it out. Make a data frame and test it out.
+```{r}
+bp_rater <- function(d_frame) {
+  d_frame
+}
+column1 <- seq(1:20)
+column2 <- letters[1:20]
+practice_df <- data.frame(column1, column2)
+practice_df
+bp_rater(practice_df)
+```
+
+Now try two data frames:
+```{r}
+bp_rater <- function(data_frame1, data_frame2) {
+  list_of_dfs <- list(c("BP Before" = data_frame1,"BP After" = data_frame2))
+  list_of_dfs
+}
+column1 <- seq(11,30)
+column2 <- letters[7:26]
+practice_df2 <- data.frame(column1, column2)
+bp_rater(practice_df,practice_df2)
+```
+
