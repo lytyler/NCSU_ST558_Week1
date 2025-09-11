@@ -1,7 +1,7 @@
 ---
 title: "R Objects, Workflow, and Functions"
 author: "Lanette Tyler"
-format: html
+format: pdf
 editor: visual
 editor_options: 
   chunk_output_type: console
@@ -37,41 +37,51 @@ char_vector <- c("hix","abd","z4","xyz","42t","Xyz")
 sort(char_vector)
 ```
 
-
 ## Data Frames
 
 List data sets currently loaded into environment:
+
 ```{r}
 data()
 ```
+
 List of data sets in environment opens in a file (R data sets)
 
 Load trees data set into environment:
+
 ```{r}
 data(trees)
 ```
+
 Loads into environment as "promise"
 
 Output data set:
+
 ```{r}
 trees
 ```
+
 Outputs to console or qmd file, depending on settings; changes from "promise" to listed in env
 
 Figure out the type of R object:
+
 ```{r}
 str(trees)
 ```
+
 It's a data frame!
 
 Subset a column (two ways):
+
 ```{r}
 trees$Height
 trees[,2]
 ```
+
 ouput columns (both are the same)
 
 Get attributes from the data frame, especially names, names lists are output as vectors, so we can subset those vectors:
+
 ```{r}
 attributes(trees)
 names(trees)
@@ -79,16 +89,17 @@ colnames(trees)
 names(trees)[2:3]
 ```
 
-
 ## Lists
 
 Investigate date frame trees:
+
 ```{r}
 is.list(trees)
 is.data.frame(trees)
 ```
 
 Because trees is a list as well as a data frame, we can subset like a list:
+
 ```{r}
 trees[1] #output is a data frame since single brackets preserve
 trees[[1]] #output is a vector, since double brackets simplify
@@ -98,6 +109,7 @@ trees[1,3] #single element
 ```
 
 Lists are very convenient for storage. Moedling function outputs are often store as lists. Let's look at a linear model's output:
+
 ```{r}
 fit <- lm(Volume~Girth+Height,data =trees)
 str(fit) #overwhelming amount of info
@@ -106,14 +118,9 @@ str(fit,max.level=1)
 ```
 
 Some of these fit objects have helper functions:
+
 ```{r}
 coef(fit)
 residuals(fit)
 effects(fit)
 ```
-
-
-
-
-
-
